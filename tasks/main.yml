@@ -1,0 +1,58 @@
+---
+# tasks file for aws-ecs-iam-users-tags
+
+- name: install awscli
+  package:
+    state: latest 
+    name: "{{ item }}"
+  with_items:
+    - aws-cli
+
+- name: Copy authorized_keys_command.sh into place
+  copy:
+    src: files/authorized_keys_command.sh
+    dest: /usr/bin/authorized_keys_command.sh
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Template aws-ec2-ssh.conf into place
+  template:
+    src: templates/aws-ec2-ssh.j2
+    dest: /etc/aws-ec2-ssh.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy import_users.sh into place
+  copy:
+    src: files/import_users.sh
+    dest: /usr/bin/import_users.sh
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Copy cron file into place rather than use ansible cron modules to deal with Cron BS on ECS
+  copy:
+    src: files/import_users_cron
+    dest: /etc/cron.d/import_users
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Edit sshd config 1
+  replace:
+    dest: /etc/ssh/sshd_config
+    regexp: '#AuthorizedKeysCommand none'
+    replace: 'AuthorizedKeysCommand /usr/bin/authorized_keys_command.sh'
+
+- name: Edit sshd config 2
+  replace:
+    dest: /etc/ssh/sshd_config
+    regexp: '#AuthorizedKeysCommandUser nobody'
+    replace: 'AuthorizedKeysCommandUser nobody'
+
+- name: Restart sshd service, even though we will be restarting our system anyway  ¯\_(ツ)_/¯
+  service:
+    name: sshd
+    state: restarted

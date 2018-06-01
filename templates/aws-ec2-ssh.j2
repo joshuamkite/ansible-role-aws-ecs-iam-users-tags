@@ -1,0 +1,11 @@
+IAM_AUTHORIZED_GROUPS="{{IAM_authorized_groups|default(omit)}}"
+IAM_AUTHORIZED_GROUPS_TAG="{{IAM_authorized_groups_tag|default(omit)}}"
+LOCAL_GROUPS="{{local_groups|default(omit)}}"
+SUDOERS_GROUPS="{{sudoers_groups|default(omit)}}"
+SUDOERS_GROUPS_TAG="{{sudoers_groups_tags|default(omit)}}"
+ASSUMEROLE="{{assumerole|default(omit)}}"
+
+# Remove or set to 0 if you are done with configuration
+# To change the interval of the sync change the file
+# /etc/cron.d/import_users
+DONOTSYNC=0
