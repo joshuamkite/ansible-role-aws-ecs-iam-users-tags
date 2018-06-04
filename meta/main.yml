@@ -1,7 +1,6 @@
 galaxy_info:
-  author: your name
-  description: your description
-  company: your company (optional)
+  author: joshuamkite
+  description: Provides IAM based individual ssh acccess. This role is intended for deployment with Packer to an AWS ECS base host AMI.
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -14,44 +13,44 @@ galaxy_info:
   # - GPLv3
   # - Apache
   # - CC-BY
-  license: license (GPLv2, CC-BY, etc)
+  license: MIT
 
   min_ansible_version: 1.2
-
-  # If this a Container Enabled role, provide the minimum Ansible Container version.
-  # min_ansible_container_version:
 
   # Optionally specify the branch Galaxy will use when accessing the GitHub
   # repo for this role. During role install, if no tags are available,
   # Galaxy will use this branch. During import Galaxy will access files on
-  # this branch. If Travis integration is configured, only notifications for this
-  # branch will be accepted. Otherwise, in all cases, the repo's default branch
+  # this branch. If travis integration is cofigured, only notification for this
+  # branch will be accepted. Otherwise, in all cases, the repos default branch
   # (usually master) will be used.
   #github_branch:
 
   #
-  # platforms is a list of platforms, and each platform has a name and a list of versions.
+  # Below are all platforms currently available. Just uncomment
+  # the ones that apply to your role. If you dont see your
+  # platform on this list, let us know and well get it added!
   #
-  # platforms:
-  # - name: Fedora
-  #   versions:
-  #   - all
-  #   - 25
-  # - name: SomePlatform
-  #   versions:
-  #   - all
-  #   - 1.0
-  #   - 7
-  #   - 99.99
+  platforms:
+  - name: Amazon
+    versions:
+    - "2017.09"
 
-  galaxy_tags: []
-    # List tags for your role here, one per line. A tag is a keyword that describes
-    # and categorizes the role. Users find roles by searching for tags. Be sure to
-    # remove the '[]' above, if you add tags to this list.
+  galaxy_tags:
+    # List tags for your role here, one per line. A tag is
+    # a keyword that describes and categorizes the role.
+    # Users find roles by searching for tags. Be sure to
+    # remove the [] above if you add tags to this list.
     #
-    # NOTE: A tag is limited to a single word comprised of alphanumeric characters.
-    #       Maximum 20 tags per role.
+    # NOTE: A tag is limited to a single word comprised of
+    # alphanumeric characters. Maximum 20 tags per role.
+    - bastion
+    - aws
+    - ssh
+    - sshd
+    - IAM
+    - cloud
 
 dependencies: []
-  # List your role dependencies here, one per line. Be sure to remove the '[]' above,
-  # if you add dependencies to this list.
+  # List your role dependencies here, one per line.
+  # Be sure to remove the [] above if you add dependencies
+  # to this list.
