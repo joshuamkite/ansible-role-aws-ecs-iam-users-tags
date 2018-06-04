@@ -1,7 +1,7 @@
 aws-ecs-iam-users-tags
 =========
 
-Provides IAM based individual ssh acccess. This role is intended for deployment with Packer to an AWS ECS base host AMI. It draws heavily on [widdix/aws-ec2-ssh](https://github.com/widdix/aws-ec2-ssh) and much of the readme below is taken from there.
+Provides IAM based individual ssh acccess. This role is intended for deployment with Packer to an AWS ECS base host AMI. It draws heavily on [widdix/aws-ec2-ssh](https://github.com/widdix/aws-ec2-ssh) -see files/widdix_license- and much of the readme below is taken from there.
 
 * On reboot, all IAM users are imported and local UNIX users are created
 * The import also runs every 10 minutes (via cron - calls import_users.sh)
