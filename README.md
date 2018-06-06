@@ -134,26 +134,26 @@ Not much use outside of AWS
 Example Playbook
 ----------------
 
----
-- hosts: all
-  become: yes
+		---
+		- hosts: all
+		become: yes
 
-  roles:
-         - role: aws-ecs-iam-users-tags
-  vars:
-    #leave empty for role defaults
-    IAM_authorized_groups: bastion-users-for-dazn-platform
-    IAM_authorized_groups_tag:
-    local_groups:
-    local_marker_group:
-    sudoers_groups: bastion-users-for-dazn-platform
-    sudoers_groups_tags:
-    assumerole:
+		roles:
+				- role: aws-ecs-iam-users-tags
+		vars:
+			#leave empty for role defaults
+			IAM_authorized_groups: bastion-users-for-dazn-platform
+			IAM_authorized_groups_tag:
+			local_groups:
+			local_marker_group:
+			sudoers_groups: bastion-users-for-dazn-platform
+			sudoers_groups_tags:
+			assumerole:
 
 License
 -------
 
-DAZN
+MIT
 
 Author Information
 ------------------
