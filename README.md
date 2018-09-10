@@ -29,10 +29,10 @@ Therefore, characters that are allowed in IAM user names but not in Linux user n
 > plus (+), equal (=), comma (,), at (@).
 
 This solution will use the following mapping for those special characters when creating users:
-* `+` => `plus`
-* `=` => `equal`
-* `,` => `comma`
-* `@` => `at`
+* `+` => `.plus.`
+* `=` => `.equal.`
+* `,` => `.comma.`
+* `@` => `.at.`
 
 So instead of `name@email.com` you will need to use `nameatemail.com` when login via SSH.
 
